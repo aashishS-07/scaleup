@@ -1,0 +1,110 @@
+'use client'
+
+import React, { useState, useEffect } from 'react';
+// import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs';
+import LightGallery from 'lightgallery/react';
+import 'lightgallery/css/lightgallery.css';
+import 'lightgallery/css/lg-zoom.css';
+import 'lightgallery/css/lg-thumbnail.css';
+import lgThumbnail from 'lightgallery/plugins/thumbnail';
+import lgZoom from 'lightgallery/plugins/zoom'
+import "./custom.css";
+
+
+import "./custom.css";
+interface Photo {
+  id: number;
+  src: string;
+  title: string;
+}
+
+const PhotoGallery: React.FC = () => {
+  const onInit = () => {
+    //console.log('lightGallery has been initialized');
+  };
+
+  const images = [
+    {
+      src: "/images/gallery/Dosti_Buddier/dosti_buider (1).jpeg",
+      width: 320,
+      height: 174,
+
+      caption: "After Rain (Jeshu John - designerspics.com)",
+    },
+    {
+      src: "/images/gallery/Dosti_Buddier/dosti_buider (2).jpeg",
+      width: 320,
+      height: 212,
+      // tags: [
+      //    { value: "Ocean", title: "Ocean" },
+      //    { value: "People", title: "People" },
+      // ],
+      caption: "Boats (Jeshu John - designerspics.com)",
+    },
+    {
+      src: "/images/gallery/Dosti_Buddier/dosti_buider (3).jpeg",
+      width: 320,
+      height: 212,
+      caption: "Dosti Buddier",
+    },
+    {
+      src: "/images/gallery/Dosti_Buddier/dosti_buider (4).jpeg",
+      width: 320,
+      height: 174,
+
+      caption: "After Rain (Jeshu John - designerspics.com)",
+    },
+    {
+      src: "/images/gallery/Dosti_Buddier/dosti_buider (5).jpeg",
+      width: 320,
+      height: 212,
+      // tags: [
+      //    { value: "Ocean", title: "Ocean" },
+      //    { value: "People", title: "People" },
+      // ],
+      caption: "Boats (Jeshu John - designerspics.com)",
+    },
+    {
+      src: "/images/gallery/Dosti_Buddier/dosti_buider (6).jpeg",
+      width: 320,
+      height: 212,
+      caption: "Dosti Buddier",
+    },
+    {
+      src: "/images/gallery/Dosti_Buddier/dosti_buider (7).jpeg",
+      width: 320,
+      height: 174,
+
+      caption: "After Rain (Jeshu John - designerspics.com)",
+    },
+  ];
+
+
+
+
+  return (
+    //center this div
+    <>
+      <div className="App">
+
+        <LightGallery
+          onInit={onInit}
+          speed={500}
+          plugins={[lgThumbnail, lgZoom]}
+        >
+          {/*<div className="imageGrid">*/}
+          {images.map((image, index) => (
+            <a key={index} href={image.src} className="imageCard">
+              <img className="smallImage" alt={`img${index}`} src={image.src} />
+              {image.caption && <div className="imageCaption">{image.caption}</div>}
+            </a>
+          ))}
+          {/*</div>*/}
+        </LightGallery>
+
+      </div>
+    </>
+  );
+}
+
+export default PhotoGallery;
