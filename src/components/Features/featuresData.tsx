@@ -25,7 +25,7 @@ const featuresData: Feature[] = [
     paragraph:
       "Our meticulous approach ensures accuracy in every aspect of our services."
   },
-  {
+  /*{
     id: 1,
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" enableBackground="new 0 0 48 48" viewBox="0 0 48 48" id="service">
@@ -81,6 +81,6 @@ const featuresData: Feature[] = [
     title: "Unique Concepts",
     paragraph:
       "We specialize in crafting unique and original designs tailored to your brand and event needs.",
-  },
+  },*/
 ];
 export default featuresData;
