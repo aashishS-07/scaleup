@@ -1,0 +1,57 @@
+import { NextResponse } from "next/server";
+
+export function GET(request) {
+    const photo_gallery = [
+        {
+            "id": 1,
+            "src": "https://picsum.photos/seed/img1/600/400",
+            "width": 4,
+            "height": 3,
+            "title": "Photo 1",
+            "alt": "Photo 1",
+            "description": "Photo 1 description"
+        },
+        {
+            "id": 2,
+            "src": "https://picsum.photos/seed/img2/600/400",
+            "width": 3,
+            "height": 4,
+            "title": "Photo 2",
+            "alt": "Photo 2",
+            "description": "Photo 2 description"
+        },
+        {
+            "id": 3,
+            "src": "https://picsum.photos/seed/img3/600/400",
+            "width": 4,
+            "height": 3,
+            "title": "Photo 3",
+            "alt": "Photo 3",
+            "description": "Photo 3 description"
+        },
+        {
+            "id": 4,
+            "src": "https://picsum.photos/seed/img4/600/400",
+            "width": 3,
+            "height": 4,
+            "title": "Photo 4",
+            "alt": "Photo 4",
+            "description": "Photo 4 description"
+        },
+        {
+            "id": 5,
+            "src": "https://picsum.photos/seed/img4/600/400",
+            "width": 4,
+            "height": 3,
+            "title": "Photo 5",
+            "alt": "Photo 5",
+            "description": "Photo 5 description"
+        }
+    ]
+    return NextResponse.json(photo_gallery);
+}
+//post function
+export async function POST(req) {
+    console.log(req)
+    return req
+}

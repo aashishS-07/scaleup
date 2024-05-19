@@ -1,0 +1,106 @@
+'use client'
+import React, { useState, useEffect } from 'react';
+import { BsArrowLeftCircleFill, BsArrowRightCircleFill } from 'react-icons/bs';
+
+import "./Carousel.css";
+
+
+interface Photo {
+  id: number;
+  src: string;
+  title: string;
+}
+
+const PhotoGallery: React.FC = () => {
+  const [photos, setPhotos] = useState<Photo[] | undefined>(undefined);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch("http://localhost:3000/api/photo_gallery");
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setPhotos(data as Photo[]);
+        //setPhotos(data.photos);
+        console.log(data);
+
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+  //count NO OF IMAGES
+  console.log(photos?.length);
+  // Define gallery state
+  const [gallery, setGallery] = useState({
+    currentImage: photos?.length,
+    translate: 0,
+    transition: 0.45,
+    images: photos,
+  });
+  // Define slide state
+  const [slide, setSlide] = useState({
+    width: 0,
+    height: 0,
+  });
+  const prevSlide = () => {
+    if (gallery.currentImage === 0) {
+      return;
+    }
+    setGallery({
+      ...gallery,
+      currentImage: gallery.currentImage - 1,
+      translate: (gallery.currentImage - 1) * slide.width,
+    });
+  };
+  const nextSlide = () => {
+    if (gallery.currentImage === photos.length - 1) {
+      return;
+    }
+    setGallery({
+      ...gallery,
+      currentImage: gallery.currentImage + 1,
+      translate: (gallery.currentImage + 1) * slide.width,
+    });
+  };
+
+  return (
+    <div>
+      <h1>Photo Gallery</h1>
+      <div className="carousel">
+      <BsArrowLeftCircleFill onClick={prevSlide} className="arrow arrow-left" />
+        {photos && photos.map((photo: Photo) => (
+          <img key={photo.id} src={photo.src} alt={photo.title} className={gallery.currentImage + 1 === photo.id ? "slide" : "slide slide-hidden"} />
+        ))}
+         <BsArrowRightCircleFill onClick={nextSlide} className="arrow arrow-right" />
+         <span className="indicators">
+            {photos.map((photo) => (
+              <button
+                key={photo.id}
+                className={slide.width === gallery.currentImage + 1 ? "indicator" : "indicator indicator-inactive"}
+                onClick={() => setSlide({ width: gallery.currentImage + 1, height: slide.height })}
+              ></button>
+            ))}
+          </span>
+      </div>
+    </div>
+  );
+}
+
+export default PhotoGallery;
