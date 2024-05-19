@@ -1,7 +1,7 @@
 
   .gallery {
     column-count: 3;
-    column-width: 33%;
+    column-width: auto;
     padding: 0 10px;
   }
 
