@@ -2,7 +2,7 @@
   .gallery {
     column-count: 3;
     column-width: auto;
-    padding: 0 10px;
+    padding-bottom: 15px;
   }
 
 

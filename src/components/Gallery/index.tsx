@@ -6,6 +6,10 @@ import "lightgallery/css/lightgallery.css";
 import "lightgallery/css/lg-zoom.css";
 import "lightgallery/css/lg-thumbnail.css";
 import "./gallery.css";
+import 'react-photo-view/dist/react-photo-view.css';
+
+
+import { PhotoProvider, PhotoView } from "react-photo-view";
 
 interface Photo {
   id: number;
@@ -24,10 +28,12 @@ const PhotoGallery: React.FC = () => {
   const images = [
     {
       id: 1,
-      src: "/images/gallery/Dosti_Buddier/dosti_buider (1).jpeg",
+      src: "/images/gallery/Dosti_Buddier/dosti_buider (7).jpeg",
       width: 320,
       height: 174,
+
       caption: "After Rain (Jeshu John - designerspics.com)",
+
     },
     // {
     //   src: "/images/gallery/Dosti_Buddier/dosti_buider (2).jpeg",
@@ -66,11 +72,11 @@ const PhotoGallery: React.FC = () => {
     },
     {
       id: 6,
-      src: "/images/gallery/Dosti_Buddier/dosti_buider (7).jpeg",
+      src: "/images/gallery/Dosti_Buddier/dosti_buider (1).jpeg",
       width: 320,
       height: 174,
-
       caption: "After Rain (Jeshu John - designerspics.com)",
+
     },
   ];
 
@@ -94,23 +100,32 @@ const PhotoGallery: React.FC = () => {
   return (
     //center this div
     <>
-      {mode && currentImage && (
-        <div className="model open">
-          <img src={currentImage.src} alt={currentImage.title} />
-          <button className="close" onClick={() => setMode(false)}>
-            Close
-          </button>
-        </div>
-      )}
-      <div className="gallery">
-        {images.map((item) => (
-          <div className="pics" key={item.id} onClick={() => getImg({ item })}>
-
-
-            <img src={item.src} alt={item.caption} style={{ width: '100%' }} />
-          </div>
+      <PhotoProvider>
+        <div className={"gallery"}>
+        {images.map((item, index) => (
+          <PhotoView key={index} src={item.src}>
+            {index < 3 ? <img src={item.src} alt="" /> : undefined}
+          </PhotoView>
         ))}
-      </div>
+        </div>
+      </PhotoProvider>
+      {/*{mode && currentImage && (*/}
+      {/*  <div className="model open">*/}
+      {/*    <img src={currentImage.src} alt={currentImage.title} />*/}
+      {/*    <button className="close" onClick={() => setMode(false)}>*/}
+      {/*      Close*/}
+      {/*    </button>*/}
+      {/*  </div>*/}
+      {/*)}*/}
+      {/*<div className="gallery">*/}
+      {/*  {images.map((item) => (*/}
+      {/*    <div className="pics" key={item.id} onClick={() => getImg({ item })}>*/}
+
+
+      {/*      <img src={item.src} alt={item.caption} style={{ width: '100%' }} />*/}
+      {/*    </div>*/}
+      {/*  ))}*/}
+      {/*</div>*/}
     </>
   );
 }
