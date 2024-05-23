@@ -38,7 +38,7 @@ const Testimonials = () => {
       <div className="container">
         <SectionTitle
           title="What Our Users Says"
-          paragraph="There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form."
+          paragraph="Our users rave about ScaleUP's exceptional service and innovative designs. They highlight our seamless execution, attention to detail, and the significant impact on their brand visibility. Trust ScaleUP to elevate your event experience and leave a lasting impression on your audience."
           center
         />
 

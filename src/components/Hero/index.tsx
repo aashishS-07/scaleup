@@ -6,6 +6,7 @@ const Hero = () => {
       <section
         id="home"
         className="relative z-10 overflow-hidden bg-white pb-12 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[110px] xl:pb-[160px] xl:pt-[150px] 2xl:pb-[200px] 2xl:pt-[180px]"
+        style={{ paddingBottom: '0px' }}
       >
         <div className="container">
           <div className="-mx-4 flex flex-wrap">

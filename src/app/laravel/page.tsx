@@ -78,7 +78,7 @@ const ErrorPage = () => {
                 <section
                   id="howItWorks"
                   className="container text-center py-24 sm:py-32"
-                >
+                  style={{ paddingBottom: '0px' }}>
                   <h2 className="text-3xl md:text-4xl font-bold ">
                     Your  {" "}
                     <span className="bg-gradient-to-b from-primary/60 to-primary text-transparent bg-clip-text">
@@ -99,7 +99,7 @@ const ErrorPage = () => {
                         className="bg-muted/50"
                       >
                         <CardHeader>
-                          <CardTitle className="grid gap-4 place-items-center">
+                          <CardTitle className="grid gap-4 place-items-center ">
                             {icon}
                             {title}
                           </CardTitle>
