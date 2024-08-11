@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-export function GET(reuqest){
+export function GET(request){
     const blog = [
         {
         "heading": "10 amazing sites to download stock photos & digital assets for free",
@@ -15,7 +15,7 @@ export function GET(reuqest){
         "subtopics":"Digital marketplace for Ui/Ux designers.",
         "info":"consectetur adipiscing elit in voluptate velit esse illum dolore eu fugiat nulla pariatur. Excepteur sint occaecat mattis vulputate cupidatat.",
         "point1":"Consectetur adipiscing elit in voluptate velit.",
-        "point2":"Mattis vulputate cupidatat",
+        "point2":"MattisQ vulputate cupidatat",
         "point3":" Vulputate enim nulla aliquet porttitor odio pellentesque.",
         "insights": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod incididunt utionals labore et dolore magna aliqua. Quis lobortis scelerisque fermentum, The Neque ut etiam sit amet.",
         "summary":"consectetur adipiscing elit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat mattis vulputate cupidatat.",
@@ -27,6 +27,6 @@ export function GET(reuqest){
 
 //post function
 export async function POST(req){
-    console.log(req)
+    //console.log(req)
     return req
 }

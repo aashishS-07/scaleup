@@ -46,7 +46,7 @@ const BlogDetailsPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch("https://scaleup-blond.vercel.app/api/blog_details");
+        const response = await fetch("http://localhost:3000/api/blog_details");
         const jsonData = await response.json();
         setData(jsonData as BlogPost[]);
 
@@ -55,7 +55,7 @@ const BlogDetailsPage = () => {
       }
     };
 
-    fetchData();
+    fetchData().then(r => r);
   }, []);
   
   return (

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "es6", // or higher if needed
+    "lib": ["dom", "dom.iterable", "esnext", "es6"],
     "baseUrl": ".",
     "paths": {
 			"@/*": ["./src/*"]
@@ -23,6 +24,6 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "src/**/*", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
