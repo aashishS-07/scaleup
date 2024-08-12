@@ -8,10 +8,10 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!recaptchaToken) {
+    /*if (!recaptchaToken) {
       alert('Please verify you are not a robot');
       return;
-    }
+    }*/
 
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());
@@ -21,10 +21,11 @@ const Contact = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': '123456'
         },
         body: JSON.stringify({
           ...data,
-          recaptchaToken,
+          //recaptchaToken,
         }),
       });
 
@@ -35,7 +36,7 @@ const Contact = () => {
         alert('Failed to send enquiry.');
       }
     } catch (error) {
-      alert('Error submitting enquiry.');
+      alert('Error submitting enquiry.'+ error);
     }
   };
 
