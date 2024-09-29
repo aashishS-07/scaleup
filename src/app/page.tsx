@@ -47,7 +47,7 @@ export default function Home() {
         <PhotoGallery />
 
 
-        <Brands />
+        {/*<Brands />*/}
       {/* <AboutSectionOne /> */}
       {/* <AboutSectionTwo /> */}
       <Testimonials />

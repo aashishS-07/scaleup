@@ -13,7 +13,7 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 interface Photo {
   id: number;
   src: string;
-  title: string;
+
   width: number;
   height: number;
   caption: string;
