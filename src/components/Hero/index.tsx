@@ -24,14 +24,16 @@ const Hero = () => {
                   you can trust that every aspect of your event will be meticulously planned and flawlessly executed,
                   leaving a lasting impression on your audience."
                 </p>
-                { <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                  <Link
-                    href="/contact"
-                    className="rounded-sm bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
-                  >
-                    Get in Touch
-                  </Link>
-                  {/* <Link
+                {
+                  <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+                    <Link
+                      href="/contact"
+                      className="relative rounded-sm bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80 -mt-2"
+                    >
+                      Get in Touch
+                    </Link>
+
+                    {/* <Link
                     href="https://github.com/NextJSTemplates/startup-nextjs"
                     className="inline-block rounded-sm bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
                   >

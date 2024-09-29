@@ -77,7 +77,7 @@ const ErrorPage = () => {
 
                 <section
                   id="howItWorks"
-                  className="container text-center py-24 sm:py-32"
+                  className="container text-center py-10 sm:py-25"
                   style={{ paddingBottom: '0px' }}>
                   <h2 className="text-3xl md:text-4xl font-bold ">
                     Your  {" "}

@@ -91,4 +91,29 @@
   margin: 5px;
 }
 
+/* Ensure the viewer is positioned correctly below the navbar */
+.react-photo-view__viewer {
+  z-index: 1050 !important; /* Make sure it appears above other elements */
+  top: 80px !important; /* Adjust based on your navbar height */
+  position: fixed; /* Keeps the viewer in a fixed position */
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: 90vw; /* Restrict width to 90% of the viewport width */
+  max-height: 80vh; /* Restrict height to 80% of the viewport height */
+  display: flex;
+  align-items: center; /* Center the image vertically */
+  justify-content: center; /* Center the image horizontally */
+  background: rgba(0, 0, 0, 0.8); /* Optional: Add a semi-transparent background */
+}
+
+/* Ensure the image fits within the viewer boundaries */
+.react-photo-view__content img {
+  max-width: 100%; /* Keep the image within the viewer width */
+  max-height: 100%; /* Keep the image within the viewer height */
+  object-fit: contain; /* Maintain image aspect ratio */
+  border-radius: 8px; /* Optional: Add rounded corners */
+}
+
+
 

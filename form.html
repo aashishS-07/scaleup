@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Form with Google reCAPTCHA</title>
+  <!-- Google reCAPTCHA script -->
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+<h1>Test Form</h1>
+<form action="/submit-form" method="POST">
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" name="name" required><br><br>
+
+  <label for="email">Email:</label><br>
+  <input type="email" id="email" name="email" required><br><br>
+
+  <!-- Google reCAPTCHA widget -->
+  <div class="g-recaptcha" data-sitekey="6LfeTyUqAAAAALs89wAc3nprPfirMDTPHZ_j10iw"></div><br>
+
+  <input type="submit" value="Submit">
+</form>
+</body>
+</html>

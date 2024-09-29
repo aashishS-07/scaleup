@@ -1,0 +1,51 @@
+import { NextResponse } from 'next/server';
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+
+
+export async function POST(req) {
+  try {
+    const { recaptchaToken, ...data } = await req.json();
+
+    // Log the received data
+    console.log('Received reCAPTCHA token:', recaptchaToken);
+    console.log('Received form data:', data);
+
+    // Verify reCAPTCHA
+    const recaptchaResponse = await fetch(`https://www.google.com/recaptcha/api/siteverify`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: `secret=6LfeTyUqAAAAACcC9rHrmCju6Jk9sLwFU8vD5AOX-&response=${recaptchaToken}`,
+    });
+
+    const recaptchaResult = await recaptchaResponse.json();
+
+    // Log the verification response
+    console.log('reCAPTCHA verification result:', recaptchaResult);
+
+    if (!recaptchaResult.success) {
+      return NextResponse.json(
+        { success: false, error: 'reCAPTCHA verification failed', 'error-codes': recaptchaResult['error-codes'] },
+        { status: 400 }
+      );
+    }
+
+    //store the form data in the json file
+    const fs = require('fs');
+
+    fs.appendFile('data.json', JSON.stringify(data), (err) => {
+      if (err) {
+        console.error('Error saving form data:', err);
+        return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });
+      }
+
+    }
+
+    // Handle other form data processing here...
+
+  } catch (error) {
+    console.error('Error in form submission:', error);
+    return NextResponse.json({ success: false, error: 'Internal server error' }, { status: 500 });
+  }
+}

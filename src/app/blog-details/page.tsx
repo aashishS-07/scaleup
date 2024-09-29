@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 // import { BlogDetails } from './blog-client';
 
 interface BlogPost {
+  id : number;
   heading: string;
   author: string;
   author_image: string;
@@ -28,7 +29,6 @@ interface BlogPost {
   summary: string;
   popular_tags: string[];
 }
-
 
 /*
 export const metadata: Metadata = {

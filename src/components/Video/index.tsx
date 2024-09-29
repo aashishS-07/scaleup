@@ -3,8 +3,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import SectionTitle from "../Common/SectionTitle";
-
-//import ModalVideo from "react-modal-video";
+import { Player } from "video-react";
+import "video-react/dist/video-react.css"; // import css
 
 const Video = () => {
   const [isOpen, setOpen] = useState(false);
@@ -14,9 +14,7 @@ const Video = () => {
       <div className="container">
         <SectionTitle
           title="Our AIM"
-          paragraph="Our aim is to provide clients one stop solution to all of their advertising and other needs. Our expertise allow them to have impressive advertisements that will ultimately satisfy their target audience. We do not compromise with the quality of the services we offer. Further we ensure the customers for timely delivery of the job that meets their satisfaction levels.
-
-          "
+          paragraph="Our aim is to provide clients one stop solution to all of their advertising and other needs. Our expertise allow them to have impressive advertisements that will ultimately satisfy their target audience. We do not compromise with the quality of the services we offer. Further we ensure the customers for timely delivery of the job that meets their satisfaction levels."
           center
           mb="80px"
         />
@@ -28,7 +26,11 @@ const Video = () => {
               data-wow-delay=".15s"
             >
               <div className="relative aspect-[77/40] items-center justify-center">
-                <Image src="/images/video/video.jpg" alt="video image" fill />
+                <Image
+                  src="/images/video/thumbnail.png"
+                  alt="video image"
+                  fill
+                />
                 <div className="absolute right-0 top-0 flex h-full w-full items-center justify-center">
                   <button
                     aria-label="video play button"
@@ -49,18 +51,28 @@ const Video = () => {
             </div>
           </div>
         </div>
+
+        {isOpen && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
+            <div className="relative w-full max-w-3xl">
+              <button
+                onClick={() => setOpen(false)}
+                className="absolute top-2 right-2 text-white"
+              >
+                Close
+              </button>
+              <Player
+                playsInline
+                autoPlay={true}  // Autoplay the video
+                poster="/images/video/thumbnail.png"
+                src="/images/video/promo-video-new.mp4"
+              />
+            </div>
+          </div>
+        )}
+
+        <div className="absolute bottom-0 left-0 right-0 z-[-1] h-full w-full bg-[url(/images/video/shape.svg)] bg-cover bg-center bg-no-repeat"></div>
       </div>
-
-      {/* <ModalVideo
-        channel="youtube"
-        autoplay={true}
-        start={true}
-        isOpen={isOpen}
-        videoId="L61p2uyiMSo"
-        onClose={() => setOpen(false)}
-      /> */}
-
-      <div className="absolute bottom-0 left-0 right-0 z-[-1] h-full w-full bg-[url(/images/video/shape.svg)] bg-cover bg-center bg-no-repeat"></div>
     </section>
   );
 };
