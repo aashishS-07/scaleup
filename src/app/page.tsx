@@ -41,7 +41,7 @@ export default function Home() {
       <ScrollUp />
       <Hero />
       {/*<ErrorPage />*/}
-      {/*<Features />*/}
+      <Features />
       <Video />
       <h1 className="text-4xl font-bold text-center py-4">Our Work</h1>
         <PhotoGallery />

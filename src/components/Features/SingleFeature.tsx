@@ -1,7 +1,7 @@
 import { Feature } from "@/types/feature";
 
 const SingleFeature = ({ feature }: { feature: Feature }) => {
-  const { icon, title, paragraph } = feature;
+  const { icon, title, description } = feature;
   return (
     <div className="w-full">
       <div className="wow fadeInUp" data-wow-delay=".15s">
@@ -12,7 +12,7 @@ const SingleFeature = ({ feature }: { feature: Feature }) => {
           {title}
         </h3>
         <p className="pr-[10px] text-base font-medium leading-relaxed text-body-color">
-          {paragraph}
+          {description}
         </p>
       </div>
     </div>
